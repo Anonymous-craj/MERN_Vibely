@@ -59,6 +59,17 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Story",
     },
+
+    resetOtp: {
+      type: String,
+    },
+    otpExpiry: {
+      type: Date,
+    },
+    isOtpVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

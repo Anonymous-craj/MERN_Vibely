@@ -20,9 +20,11 @@ const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
 
   const handleSignUp = async () => {
     setLoading(true);
+    setErr("");
     try {
       const response = await axios.post(
         `${serverUrl}/api/auth/signup`,
@@ -39,6 +41,7 @@ const SignUp = () => {
     } catch (error) {
       console.log(error);
       setLoading(false);
+      setErr(error.response?.data?.message);
     }
   };
 
@@ -159,7 +162,7 @@ const SignUp = () => {
             )}
           </div>
           {/* password input field closed */}
-
+          {err && <p className="text-red-500">{err}</p>}
           <button
             className="w-[70%] px-[20px] py-[10px] bg-black text-white font-semibold h-[50px] cursor-pointer rounded-2xl mt-[20px]"
             onClick={handleSignUp}
