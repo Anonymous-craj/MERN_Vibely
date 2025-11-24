@@ -5,7 +5,7 @@ import RightHome from "../components/RightHome";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full flex justify-center items-center">
       <LeftHome />
       <Feed />
       <RightHome />
