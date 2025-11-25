@@ -20,8 +20,17 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    profileImage: {
+
+    bio: {
       type: String,
+    },
+
+    profession: {
+      type: String,
+    },
+    gender: {
+      type: String,
+      enum: ["male", "female"],
     },
     followers: [
       {

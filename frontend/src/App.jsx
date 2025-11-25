@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import useGetCurrentUser from "./customHooks/getCurrentUser";
 import { useSelector } from "react-redux";
 import useGetSuggestedUsers from "./customHooks/getSuggestedUsers";
+import Profile from "./pages/Profile";
 export const serverUrl = "http://localhost:8000";
 const App = () => {
   useGetCurrentUser();
@@ -30,6 +31,10 @@ const App = () => {
         <Route
           path="/forgot-password"
           element={!userData ? <ForgotPassword /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/profile/:userName"
+          element={userData ? <Profile /> : <Navigate to="/signin" />}
         />
       </Routes>
     </>
